@@ -29,7 +29,7 @@ class SpacyTextPreprocessor:
         self._nlp = spacy.load(model)
         # Build the effective stopword set by removing negation words from it.
         # This means the main filter loop needs no special-case branching.
-        self._stopwords = frozenset(STOP_WORDS) - NEGATION_WORDS
+        self._stopwords = frozenset(STOP_WORDS) - NEGATION_WORDS # type: ignore
         self._punctuation = frozenset(string.punctuation)
 
     def tokenize(self, text: str) -> list[str]:
